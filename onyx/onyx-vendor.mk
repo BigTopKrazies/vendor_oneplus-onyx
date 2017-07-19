@@ -17,6 +17,8 @@
 PRODUCT_COPY_FILES += \
     vendor/oneplus/onyx/proprietary/bin/adsprpcd:system/bin/adsprpcd \
     vendor/oneplus/onyx/proprietary/bin/btnvtool:system/bin/btnvtool \
+    vendor/oneplus/onyx/proprietary/bin/cnd:system/bin/cnd \
+    vendor/oneplus/onyx/proprietary/bin/dpmd:system/bin/dpmd \
     vendor/oneplus/onyx/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
     vendor/oneplus/onyx/proprietary/bin/irsc_util:system/bin/irsc_util \
     vendor/oneplus/onyx/proprietary/bin/loc_launcher:system/bin/loc_launcher \
@@ -32,8 +34,20 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/onyx/proprietary/bin/rmt_storage:system/bin/rmt_storage \
     vendor/oneplus/onyx/proprietary/bin/sensors.qcom:system/bin/sensors.qcom \
     vendor/oneplus/onyx/proprietary/bin/time_daemon:system/bin/time_daemon \
+    vendor/oneplus/onyx/proprietary/etc/cne/andsfCne.xml:system/etc/cne/andsfCne.xml \
+    vendor/oneplus/onyx/proprietary/etc/cne/SwimConfig.xml:system/etc/cne/SwimConfig.xml \
     vendor/oneplus/onyx/proprietary/etc/data/dsi_config.xml:system/etc/data/dsi_config.xml \
     vendor/oneplus/onyx/proprietary/etc/data/netmgr_config.xml:system/etc/data/netmgr_config.xml \
+    vendor/oneplus/onyx/proprietary/etc/dpm/dpm.conf:system/etc/dpm/dpm.conf \
+    vendor/oneplus/onyx/proprietary/etc/dpm/nsrm/NsrmConfiguration.xml:system/etc/dpm/nsrm/NsrmConfiguration.xml \
+    vendor/oneplus/onyx/proprietary/etc/permissions/cneapiclient.xml:system/etc/permissions/cneapiclient.xml \
+    vendor/oneplus/onyx/proprietary/vendor/lib/libcneconn.so:system/vendor/lib/libcneconn.so \
+    vendor/oneplus/onyx/proprietary/vendor/lib/libcneqmiutils.so:system/vendor/lib/libcneqmiutils.so \
+    vendor/oneplus/onyx/proprietary/vendor/lib/libcne.so:system/vendor/lib/libcne.so \
+    vendor/oneplus/onyx/proprietary/etc/permissions/com.qti.dpmframework.xml:system/etc/permissions/com.qti.dpmframework.xml \
+    vendor/oneplus/onyx/proprietary/etc/permissions/com.quicinc.cne.xml:system/etc/permissions/com.quicinc.cne.xml \
+    vendor/oneplus/onyx/proprietary/etc/permissions/ConnectivityExt.xml:system/etc/permissions/ConnectivityExt.xml \
+    vendor/oneplus/onyx/proprietary/etc/permissions/dpmapi.xml:system/etc/permissions/dpmapi.xml \
     vendor/oneplus/onyx/proprietary/etc/firmware/a330_pfp.fw:system/etc/firmware/a330_pfp.fw \
     vendor/oneplus/onyx/proprietary/etc/firmware/a330_pm4.fw:system/etc/firmware/a330_pm4.fw \
     vendor/oneplus/onyx/proprietary/etc/firmware/adsp.b00:system/etc/firmware/adsp.b00 \
@@ -210,6 +224,8 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/onyx/proprietary/vendor/lib/libconfigdb.so:system/vendor/lib/libconfigdb.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libdataitems.so:system/vendor/lib/libdataitems.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
+    vendor/oneplus/onyx/proprietary/vendor/lib/libdpmframework.so:system/vendor/lib/libdpmframework.so \
+    vendor/oneplus/onyx/proprietary/vendor/lib/libdpmnsrm.so:system/vendor/lib/libdpmnsrm.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libdisp-aba.so:system/vendor/lib/libdisp-aba.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libdrmfs.so:system/vendor/lib/libdrmfs.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libdrmtime.so:system/vendor/lib/libdrmtime.so \
@@ -278,6 +294,7 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/onyx/proprietary/vendor/lib/libmmparser.so:system/vendor/lib/libmmparser.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libmmqjpeg_codec.so:system/vendor/lib/libmmqjpeg_codec.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libnetmgr.so:system/vendor/lib/libnetmgr.so \
+    vendor/oneplus/onyx/proprietary/vendor/lib/libNimsWrap.so:system/vendor/lib/libNimsWrap.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/liboemcamera.so:system/vendor/lib/liboemcamera.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libperipheral_client.so:system/vendor/lib/libperipheral_client.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libqcci_legacy.so:system/vendor/lib/libqcci_legacy.so \
@@ -314,6 +331,7 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/onyx/proprietary/vendor/lib/libthermalclient.so:system/vendor/lib/libthermalclient.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libthermalioctl.so:system/vendor/lib/libthermalioctl.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libuiblur.so:system/vendor/lib/libuiblur.so \
+    vendor/oneplus/onyx/proprietary/vendor/lib/libvendorconn.so:system/vendor/lib/libvendorconn.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libwvdrm_L3.so:system/vendor/lib/libwvdrm_L3.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/libxml.so:system/vendor/lib/libxml.so \
     vendor/oneplus/onyx/proprietary/vendor/lib/mediadrm/libwvdrmengine.so:system/vendor/lib/mediadrm/libwvdrmengine.so \
@@ -331,6 +349,10 @@ PRODUCT_PACKAGES += \
     TimeService \
     shutdownlistener \
     qcrilmsgtunnel \
+    cneapiclient \
+    com.qti.dpmframework \
+    com.quicinc.cne \
     ConnectivityExt \
+    dpmapi \
     qcnvitems \
     qcrilhook
